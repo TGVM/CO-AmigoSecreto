@@ -25,6 +25,7 @@ function AdicionarAmigo(){
     }
     //limpa campo de texto
     LimparCampo();
+    AtualizarLista();
 }
 
 /*
@@ -33,7 +34,12 @@ aparecerão em uma lista abaixo do campo de
 entrada.
 */
 function AtualizarLista(){
-
+    let listaHtml = document.getElementById("listaAmigos");
+    listaHtml.innerHTML = '';
+    for (let a in amigos){
+        console.log(amigos[a]);
+        AddNomeNaLista(amigos[a], listaHtml);
+    }
 }
 
 /*
@@ -50,4 +56,11 @@ function SortearAmigo(){
 function LimparCampo(){
     campo = document.getElementById("amigo");
     campo.value = '';
+}
+
+function AddNomeNaLista(nome, lista){
+
+    let amigoLi = document.createElement("li");
+    amigoLi.innerText = nome;
+    lista.appendChild(amigoLi);
 }
