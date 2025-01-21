@@ -1,9 +1,6 @@
 //Variáveis
 let amigos = [];
 
-
-
-
 /*
 Adicionar nomes: Os usuários escreverão o nome 
 de um amigo em um campo de texto e o adicionarão
@@ -37,7 +34,6 @@ function AtualizarLista(){
     let listaHtml = document.getElementById("listaAmigos");
     listaHtml.innerHTML = '';
     for (let a in amigos){
-        console.log(amigos[a]);
         AddNomeNaLista(amigos[a], listaHtml);
     }
 }
@@ -48,7 +44,14 @@ Amigo", um nome da lista será selecionado
 aleatoriamente e exibido na página.
 */
 function SortearAmigo(){
+    if(amigos.length <= 0) return;
 
+    let index = Math.floor(Math.random() * amigos.length);
+    console.log(amigos.length);
+    let amigoSorteado = amigos[index];
+    console.log(amigoSorteado);
+    let campo = document.getElementById("resultado");
+    campo.innerHTML = amigoSorteado;
 }
 
 
